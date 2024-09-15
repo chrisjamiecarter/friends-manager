@@ -7,6 +7,8 @@
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "autoprefixer": "^10.4.20",
+    "postcss-cli": "^11.0.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-redux": "^9.1.2",
@@ -16,10 +18,11 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "start:database": "json-server --watch db.json --port 5000",
     "build": "react-scripts build",
+    "build:css": "postcss src/tailwind.css -o src/index.css",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "database": "json-server --watch db.json --port 5000"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
@@ -44,6 +47,7 @@
     "@eslint/js": "^9.10.0",
     "eslint": "^8.57.0",
     "eslint-plugin-react": "^7.36.1",
-    "globals": "^15.9.0"
+    "globals": "^15.9.0",
+    "tailwindcss": "^3.4.11"
   }
 }

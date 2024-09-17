@@ -1,19 +1,28 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { loadFriends } from '../redux/actions';
+import { loadFriendsThunk } from '../redux/friendsSlice';
 
-const Contacts = () => {
-
-    let dispatch = useDispatch();
-    const friends = useSelector((state) => state.friends);
+const FriendList = () => {
+    const dispatch = useDispatch();
+    const friends = useSelector((state) => state.friends.data);
+    const loading = useSelector((state) => state.friends.status);
 
     useEffect(() => {
-        dispatch(loadFriends());
-    }, []);
-    
+        dispatch(loadFriendsThunk());
+    }, [dispatch]);
+
+    if (loading === 'loading') {
+        return (
+            <div className='friends-list'>
+                <h2 className="text-center text-lg font-bold my-4">Friends</h2>
+                <p>Loading Friends</p>
+            </div>
+        );
+    };
+
     return (
-        <div>
-            <h2 className="text-lg font-bold">Friends</h2>
+        <div className='friends-list'>
+            <h2 className="text-center text-lg font-bold my-4">Friends</h2>
             <table className="min-w-full text-left text-sm font-light text-surface">
                 <thead className="border-b border-slate-200 font-medium">
                     <tr>
@@ -34,6 +43,6 @@ const Contacts = () => {
             </table>
         </div>
     )
-};
+}
 
-export default Contacts;
+export default FriendList;

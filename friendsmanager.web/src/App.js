@@ -1,16 +1,17 @@
 import React from 'react';
-// import logo from './logo.svg';
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
-import Friends from './pages/Friends';
+import FriendList from './components/FriendList';
+import ErrorDisplay from './components/ErrorDisplay';
 
 function App() {
   return (
-    <div className="App">
+    <div className="app-container">
       <Header />
+      <ErrorDisplay />
       <Routes>
-        <Route exact path="/" element={<Friends />} />
+        <Route exact path="/" element={<FriendList />} />
       </Routes>
       </div>
   );

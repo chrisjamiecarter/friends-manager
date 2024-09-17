@@ -25,7 +25,7 @@ const Contacts = () => {
                     {friends && friends.map(friend => {
                         return (
                             <tr key={friend.id} className="border-b border-slate-200 hover:bg-slate-500 hover:text-white">
-                                <td className="whitespace-nowrap px-6 py-4 font-medium ">{friend.id}</td>
+                                <td className="whitespace-nowrap px-6 py-4 font-medium">{friend.id}</td>
                                 <td className="whitespace-nowrap px-6 py-4 font-medium">{friend.name}</td>
                             </tr>
                         );

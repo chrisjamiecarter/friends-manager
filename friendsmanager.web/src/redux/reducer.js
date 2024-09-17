@@ -1,17 +1,17 @@
 import * as types from "./actionType";
 
 const initialState = {
-    contacts: [],
-    contact: {},
+    friends: [],
+    friend: {},
     loading: false
 };
 
-const contactReducer = (state = initialState, action) => {
+const friendReducer = (state = initialState, action) => {
     switch(action.type) {
-        case types.GET_CONTACTS:
+        case types.GET_FRIENDS:
             return {
                 ...state,
-                contacts: action.payload,
+                friends: action.payload,
                 loading: false,
             };
         default:
@@ -19,4 +19,4 @@ const contactReducer = (state = initialState, action) => {
     }
 };
 
-export default contactReducer;
+export default friendReducer;

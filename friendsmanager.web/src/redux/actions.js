@@ -1,14 +1,14 @@
 import * as types from "./actionType";
 
-const getContacts = (contacts) => ({
-    type: types.GET_CONTACTS,
-    payload: contacts,
+const getFriends = (friends) => ({
+    type: types.GET_FRIENDS,
+    payload: friends,
 });
 
-export const loadContacts = () => {
+export const loadFriends = () => {
     return function (dispatch) {
         // fetch(`${process.env.REACT_APP_API}`)
-        fetch("http://localhost:5000/contacts")
+        fetch("http://localhost:5000/friends")
         .then(response => {
             if (response.ok) {
                 return response.json();
@@ -17,7 +17,7 @@ export const loadContacts = () => {
         })
         .then(data => {
             console.log("data", data);
-            dispatch(getContacts(data));
+            dispatch(getFriends(data));
         })
         .catch(error => {
             console.error("error", error);

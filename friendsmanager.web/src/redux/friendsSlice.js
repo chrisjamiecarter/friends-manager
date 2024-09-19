@@ -23,6 +23,7 @@ const friendsSlice = createSlice({
         builder
             .addCase(loadFriendsThunk.pending, (state) => {
                 state.status = 'loading';
+                state.error = null;
             })
             .addCase(loadFriendsThunk.fulfilled, (state, action) => {
                 state.status = 'succeeded';

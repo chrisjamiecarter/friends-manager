@@ -26,7 +26,8 @@ const friendsSlice = createSlice({
             })
             .addCase(loadFriendsThunk.fulfilled, (state, action) => {
                 state.status = 'succeeded';
-                state.data = action.payload;  
+                state.data = action.payload;
+                state.error = null;
             })
             .addCase(loadFriendsThunk.rejected, (state, action) => {
                 state.status = 'failed';

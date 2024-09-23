@@ -1,7 +1,7 @@
 ﻿using FriendsManager.Infrastructure.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace Budget.Infrastructure.Contexts;
+namespace FriendsManager.Infrastructure.Contexts;
 
 /// <summary>
 /// Represents the Entity Framework Core database context for the FriendsManager data store.

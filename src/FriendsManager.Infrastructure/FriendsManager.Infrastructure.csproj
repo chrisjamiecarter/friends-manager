@@ -6,4 +6,13 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\FriendsManager.Application\FriendsManager.Application.csproj" />
+    <ProjectReference Include="..\FriendsManager.Domain\FriendsManager.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Contexts\" />
+  </ItemGroup>
+
 </Project>

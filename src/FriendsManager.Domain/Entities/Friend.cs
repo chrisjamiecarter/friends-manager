@@ -7,17 +7,17 @@ public class Friend
 {
     #region Properties
 
-    public Guid Id { get; set; }
+    public required Guid Id { get; set; }
 
-    public string Name { get; set; } = "";
+    public required string Name { get; set; }
 
-    public int DesiredContactFrequency { get; set; }
+    public required int DesiredContactFrequency { get; set; }
 
-    public DateTime LastContactDate { get; set; }
+    public required DateTime LastContactDate { get; set; }
 
-    public string LastContactType { get; set; } = "";
+    public required string LastContactType { get; set; }
 
-    public Category? Category { get; set; }
+    public required Category Category { get; set; }
 
     #endregion
 }

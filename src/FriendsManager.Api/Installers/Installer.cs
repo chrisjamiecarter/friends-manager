@@ -1,4 +1,5 @@
-﻿using FriendsManager.Infrastructure.Installers;
+﻿using Asp.Versioning;
+using FriendsManager.Infrastructure.Installers;
 
 namespace FriendsManager.Api.Installers;
 
@@ -9,6 +10,20 @@ public static class Installer
 {
     public static IServiceCollection AddApi(this IServiceCollection services)
     {
+        services.AddApiVersioning(options =>
+        {
+            options.DefaultApiVersion = new ApiVersion(1);
+            options.ReportApiVersions = true;
+            options.AssumeDefaultVersionWhenUnspecified = true;
+            options.ApiVersionReader = new UrlSegmentApiVersionReader();
+        })
+            .AddMvc()
+            .AddApiExplorer(options =>
+            {
+                options.GroupNameFormat = "'v'V";
+                options.SubstituteApiVersionInUrl = true;
+            });
+                
         services.AddControllers();
 
         services.AddEndpointsApiExplorer();

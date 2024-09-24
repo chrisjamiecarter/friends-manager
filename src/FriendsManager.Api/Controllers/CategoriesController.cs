@@ -41,7 +41,6 @@ public class CategoriesController : ControllerBase
     public async Task<ActionResult<Category>> Get([FromRoute] Guid id)
     {
         var category = await _service.ReturnAsync(id);
-
         return category is null ? NotFound() : Ok(category);
     }
 
@@ -56,7 +55,7 @@ public class CategoriesController : ControllerBase
         };
 
         await _service.CreateAsync(category);
-        return CreatedAtRoute(nameof(Get), category.Id, category);
+        return CreatedAtAction(nameof(Get), new { id = category.Id }, category);
     }
 
     [HttpPut("{id}")]

@@ -68,7 +68,7 @@ public class FriendsController : ControllerBase
         };
 
         await _friendService.CreateAsync(friend);
-        return CreatedAtRoute(nameof(Get), friend.Id, friend);
+        return CreatedAtAction(nameof(Get), new { id = friend.Id }, friend);
     }
 
     [HttpPut("{id}")]

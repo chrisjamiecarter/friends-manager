@@ -15,9 +15,9 @@ internal class FriendsManagerDataContext : DbContext
     #endregion
     #region Properties
 
-    public DbSet<CategoryModel> Category { get; set; }
+    public DbSet<CategoryModel> Category { get; set; } = default!;
 
-    public DbSet<FriendModel> Friend { get; set; }
+    public DbSet<FriendModel> Friend { get; set; } = default!;
 
     #endregion
 }

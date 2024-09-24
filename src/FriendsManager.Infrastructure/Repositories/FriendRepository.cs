@@ -46,7 +46,7 @@ internal class FriendRepository : IFriendRepository
 
     public async Task<IEnumerable<Friend>> ReturnAsync()
     {
-        var data = await _dataContext.Friend.ToListAsync();
+        var data = await _dataContext.Friend.Include(f => f.Category).ToListAsync();
         return data.Select(x => x.ToDomain());
     }
 

@@ -12,6 +12,11 @@
 
   <ItemGroup>
     <Folder Include="Controllers\" />
+    <Folder Include="Models\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FriendsManager.Infrastructure\FriendsManager.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

@@ -23,8 +23,7 @@ internal static class CategoryMappingExtensions
         return new CategoryModel
         {
             Id = entity.Id,
-            Name = entity.Name,
-            Friends = [],
+            Name = entity.Name
         };
     }
 }

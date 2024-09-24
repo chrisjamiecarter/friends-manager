@@ -20,7 +20,7 @@ internal class CategoryModel
     [Required]
     public required string Name { get; set; }
 
-    public required List<FriendModel> Friends { get; set; }
+    public List<FriendModel>? Friends { get; set; }
 
     #endregion
     #region Methods

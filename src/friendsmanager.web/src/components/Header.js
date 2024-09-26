@@ -14,7 +14,7 @@ const Header = () => {
                     <ul className="sm:flex lg:gap-x-12">
                         <li className="border-b-2 border-transparent hover:text-gray-800 transition-colors duration-300 transform hover:border-blue-500 mx-1.5 sm:mx-6"><Link to="/">friends</Link></li>
                         <li className="border-b-2 border-transparent hover:text-gray-800 transition-colors duration-300 transform hover:border-blue-500 mx-1.5 sm:mx-6"><Link to="/addfriend">add friend</Link></li>
-                        <li className="border-b-2 border-transparent hover:text-gray-800 transition-colors duration-300 transform hover:border-blue-500 mx-1.5 sm:mx-6">record activity</li>
+                        <li className="border-b-2 border-transparent hover:text-gray-800 transition-colors duration-300 transform hover:border-blue-500 mx-1.5 sm:mx-6"><Link to="/addcontact">add contact</Link></li>
                     </ul>
                 </div>
             </nav>

@@ -6,6 +6,7 @@ import AddFriendForm from './components/AddFriendForm';
 import FriendList from './components/FriendList';
 import ErrorDisplay from './components/ErrorDisplay';
 import Footer from './components/Footer';
+import AddContactForm from './components/AddContactForm';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Routes>
           <Route exact path="/" element={<FriendList />} />
           <Route path="addfriend" element={<AddFriendForm />} />
+          <Route path="addcontact" element={<AddContactForm />} />
         </Routes>
       </main>
       <Footer />

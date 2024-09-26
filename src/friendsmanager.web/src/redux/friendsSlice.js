@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { loadFriends, addFriend } from '../services/api';
+import { loadFriends, addFriend, addContact } from '../services/api';
 
 export const loadFriendsThunk = createAsyncThunk('friends/loadFriends', async () => {
     const response = await loadFriends();
@@ -8,6 +8,11 @@ export const loadFriendsThunk = createAsyncThunk('friends/loadFriends', async ()
 
 export const addFriendThunk = createAsyncThunk('friends/addFriend', async (friend) => {
     const response = await addFriend(friend);
+    return response;
+});
+
+export const updateFriendThunk = createAsyncThunk('friends/updateFriend', async (friend) => {
+    const response = await addContact(friend);
     return response;
 });
 

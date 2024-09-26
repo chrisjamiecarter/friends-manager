@@ -46,7 +46,7 @@ internal class CategoryRepository : ICategoryRepository
 
     public async Task<IEnumerable<Category>> ReturnAsync()
     {
-        var data = await _dataContext.Category.ToListAsync();
+        var data = await _dataContext.Category.OrderBy(o => o.Name).ToListAsync();
         return data.Select(x => x.ToDomain());
     }
 

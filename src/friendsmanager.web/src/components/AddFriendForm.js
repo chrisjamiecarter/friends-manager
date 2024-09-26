@@ -1,12 +1,19 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { addFriendThunk } from '../redux/friendsSlice';
+import { loadCategoriesThunk } from '../redux/categoriesSlice';
 
 const AddFriendForm = () => {
   const dispatch = useDispatch();
+  const categories = useSelector((state) => state.categories.data);
+
+  useEffect(() => {
+    dispatch(loadCategoriesThunk());
+  }, [dispatch]);
+
   const [formData, setFormData] = useState({
     name: '',
-    category: '',
+    categoryid: '',
     lastContactDate: '',
     lastContactType: '',
     desiredContactFrequency: ''
@@ -20,14 +27,14 @@ const AddFriendForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Perform validation
-    if (!formData.name || !formData.category) {
+    if (!formData.name || !formData.categoryid || !formData.lastContactDate || !formData.lastContactType || !formData.desiredContactFrequency) {
       alert('Please fill out all fields');
       return;
     }
     dispatch(addFriendThunk(formData));
     setFormData({
       name: '',
-      category: '',
+      categoryid: '',
       lastContactDate: '',
       lastContactType: '',
       desiredContactFrequency: ''
@@ -49,12 +56,13 @@ const AddFriendForm = () => {
 
                 <div>
                     <label className="text-gray-700" htmlFor="category">Category</label>
-                    <select id='category' name="category" value={formData.category} onChange={handleChange} className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring">
+                    <select id='category' name="categoryid" value={formData.categoryid} onChange={handleChange} className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring">
                         <option value="">Select Category</option>
-                        <option value="Work">Work</option>
-                        <option value="Family">Family</option>
-                        <option value="Close Friend">Close Friend</option>
-                        <option value="Acquaintance">Acquaintance</option>
+                        {categories.map((category) => (
+                          <option key={category.id} value={category.id}>
+                            {category.name}
+                          </option>
+                        ))}
                     </select>
                 </div>
 

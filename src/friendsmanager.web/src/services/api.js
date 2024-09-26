@@ -1,6 +1,20 @@
 const categoriesApiUrl = process.env.REACT_APP_CATEGORIES_API_URL;
 const friendsApiUrl = process.env.REACT_APP_FRIENDS_API_URL;
 
+export const loadCategories = async () => {
+    return await fetch(categoriesApiUrl)
+    .then(response => {
+        if (response.ok) {
+            return response.json();
+        }
+        throw response;
+    })
+    .catch(error => {
+        console.error("error", error);
+        throw error;
+    });
+};
+
 export const loadFriends = async () => {
     return await fetch(friendsApiUrl)
     .then(response => {

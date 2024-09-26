@@ -73,7 +73,7 @@ export const addContact = async (contact) => {
     request.lastContactType = contact.contactType;
     request.categoryId = friend.category.id;
     
-    await updateFriend(friend.id, request);
+    return await updateFriend(friend.id, request);
 };
 
 const updateFriend = async (id, friend) => {

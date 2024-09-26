@@ -41,7 +41,13 @@ const friendsSlice = createSlice({
             })
             .addCase(addFriendThunk.fulfilled, (state, action) => {
                 state.data.push(action.payload);
-            });
+            })
+            .addCase(updateFriendThunk.fulfilled, (state, action) => {
+                const index = state.data.findIndex(friend => friend.id === action.payload.id);
+                if (index !== -1) {
+                    state.data[index] = action.payload;
+                }
+            });;
     }
 });
 

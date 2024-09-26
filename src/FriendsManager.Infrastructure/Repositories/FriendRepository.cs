@@ -32,7 +32,12 @@ internal class FriendRepository : IFriendRepository
 
     public async Task CreateAsync(Friend entity)
     {
-        await _dataContext.Friend.AddAsync(entity.ToModel());
+        var model = entity.ToModel();
+        var category = await _dataContext.Category.FindAsync(model.CategoryId);
+        ArgumentNullException.ThrowIfNull(category);
+        
+        model.Category = category;
+        await _dataContext.Friend.AddAsync(model);
     }
 
     public async Task DeleteAsync(Friend entity)

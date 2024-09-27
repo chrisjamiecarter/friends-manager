@@ -102,7 +102,7 @@ export const deleteFriend = async (id) => {
     })
     .then(response => {
         if (response.ok) {
-            return;
+            return true;
         }
         throw response;
     })

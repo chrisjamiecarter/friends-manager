@@ -22,8 +22,10 @@ export const updateFriendThunk = createAsyncThunk('friends/updateFriend', async 
 });
 
 export const deleteFriendThunk = createAsyncThunk('friends/deleteFriend', async (id) => {
-    await deleteFriend(id);
-    return id;
+    const response = await deleteFriend(id);
+    if (response) {
+        return id;
+    }
 });
 
 const friendsSlice = createSlice({

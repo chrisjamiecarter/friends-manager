@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from "react-router-dom";
 import { addFriendThunk } from '../redux/friendsSlice';
 import { loadCategoriesThunk } from '../redux/categoriesSlice';
 
 const AddFriendForm = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const categories = useSelector((state) => state.categories.data);
 
   useEffect(() => {
@@ -26,19 +28,13 @@ const AddFriendForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Perform validation
+    // Perform validation.
     if (!formData.name || !formData.categoryid || !formData.lastContactDate || !formData.lastContactType || !formData.desiredContactFrequency) {
       alert('Please fill out all fields');
       return;
     }
     dispatch(addFriendThunk(formData));
-    setFormData({
-      name: '',
-      categoryid: '',
-      lastContactDate: '',
-      lastContactType: '',
-      desiredContactFrequency: ''
-    });
+    navigate('/');
   };
 
   return (

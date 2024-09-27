@@ -95,3 +95,19 @@ const updateFriend = async (id, friend) => {
         throw error;
     });
 };
+
+export const deleteFriend = async (id) => {
+    return await fetch(friendsApiUrl + `${id}`, {
+        method: 'DELETE'
+    })
+    .then(response => {
+        if (response.ok) {
+            return;
+        }
+        throw response;
+    })
+    .catch(error => {
+        console.error("error", error);
+        throw error;
+    });
+};

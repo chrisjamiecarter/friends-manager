@@ -1,5 +1,10 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { loadFriends, addFriend, addContact } from '../services/api';
+import { loadFriend, loadFriends, addFriend, deleteFriend, addContact } from '../services/api';
+
+export const loadFriendThunk = createAsyncThunk('friends/loadFriend', async (id) => {
+    const response = await loadFriend(id);
+    return response;
+});
 
 export const loadFriendsThunk = createAsyncThunk('friends/loadFriends', async () => {
     const response = await loadFriends();
@@ -14,6 +19,11 @@ export const addFriendThunk = createAsyncThunk('friends/addFriend', async (frien
 export const updateFriendThunk = createAsyncThunk('friends/updateFriend', async (friend) => {
     const response = await addContact(friend);
     return response;
+});
+
+export const deleteFriendThunk = createAsyncThunk('friends/deleteFriend', async (id) => {
+    await deleteFriend(id);
+    return id;
 });
 
 const friendsSlice = createSlice({
@@ -47,7 +57,10 @@ const friendsSlice = createSlice({
                 if (index !== -1) {
                     state.data[index] = action.payload;
                 }
-            });;
+            })
+            .addCase(deleteFriendThunk.fulfilled, (state, action) => {
+                state.data = state.data.filter(friend => friend.id !== action.payload);
+            });
     }
 });
 

@@ -7,7 +7,7 @@ const Header = () => {
         <header>
             <nav className='bg-white shadow'>
                 <div className='container flex items-center justify-between p-6 mx-auto text-slate-800 capitalize'>
-                    <a href="#/top" className='flex'>
+                    <a href="/" className='flex'>
                         <img className='rounded-full w-auto h-6 sm:h-7' src={logo} alt='Logo' />
                         <h1 className='text-lg font-bold mx-2'>Friends Manager</h1>
                     </a>

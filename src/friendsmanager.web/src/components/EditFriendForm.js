@@ -31,7 +31,7 @@ const EditFriendForm = () => {
   }
 
   const handleCancel = () => {
-    navigate(-1);
+    navigate('/');
   };
 
   const handleChange = (e) => {

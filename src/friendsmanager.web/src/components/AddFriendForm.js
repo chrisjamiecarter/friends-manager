@@ -17,7 +17,7 @@ const AddFriendForm = () => {
   });
 
   const handleCancel = () => {
-    navigate(-1);
+    navigate('/');
   };
 
   const handleChange = (e) => {

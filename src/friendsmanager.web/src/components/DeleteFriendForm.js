@@ -24,7 +24,7 @@ const DeleteFriendForm = () => {
   }
   
   const handleCancel = () => {
-    navigate(-1);
+    navigate('/');
   };
 
   const handleDelete = () => {

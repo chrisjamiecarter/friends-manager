@@ -3,37 +3,33 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from "react-router-dom";
 import { deleteFriendThunk } from '../redux/friendsSlice';
 
-const DeleteFriendComponent = () => {
+const DeleteFriendForm = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const friends = useSelector((state) => state.friends.data);
   
   const { id } = useParams();
-
-    const getFriend = () => {
-        const index = friends.findIndex(friend => friend.id === id);
-        if (index !== -1) {
-            return friends[index];
-        }
+  const getFriend = () => {
+    const index = friends.findIndex(friend => friend.id === id);
+    if (index !== -1) {
+        return friends[index];
     }
+  }
+  const friend = getFriend();
 
-    const friend = getFriend();
-
-    if (!friend) {
-        // If no friend data is available, redirect or show an error message.
-        // TODO: IMPROVE.
-        return <div>Error: No friend selected for deletion.</div>;
-      }
+  if (!friend) {
+    // If no friend data is available, redirect or show an error message.
+    // TODO: IMPROVE.
+    return <div>Error: Invalid friend id.</div>;
+  }
+  
+  const handleCancel = () => {
+    navigate(-1);
+  };
 
   const handleDelete = () => {
     dispatch(deleteFriendThunk(friend.id));
-    
-    // Redirect back to the list of friends or home after deletion
     navigate('/');
-  };
-
-  const handleCancel = () => {
-    navigate(-1);
   };
 
   return (
@@ -65,4 +61,4 @@ const DeleteFriendComponent = () => {
   );
 };
 
-export default DeleteFriendComponent;
+export default DeleteFriendForm;

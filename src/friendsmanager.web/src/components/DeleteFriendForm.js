@@ -43,19 +43,8 @@ const DeleteFriendForm = () => {
       </p>
       
       <div className="flex justify-center mt-6">
-        <button 
-          onClick={handleDelete} 
-          className="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600 focus:outline-none focus:bg-red-600 mr-2"
-        >
-          Delete
-        </button>
-        
-        <button 
-          onClick={handleCancel} 
-          className="px-4 py-2 bg-gray-500 text-white rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600"
-        >
-          Cancel
-        </button>
+        <button type='submit' onClick={handleDelete} className="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600 focus:outline-none focus:bg-red-600 mr-2">Delete</button>
+        <button type='button' onClick={handleCancel} className="px-4 py-2 bg-gray-500 text-white rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">Cancel</button>
       </div>
     </div>
   );

@@ -56,8 +56,6 @@ const EditFriendForm = () => {
     request.categoryId = formData.categoryid;
 
     dispatch(updateFriendThunk(request));
-    //console.log("formData", formData);
-    // Object { name: "Randomer", categoryid: "5b8974cd-d59e-436f-8055-03b7fd7aa170", desiredContactFrequency: "51" }
     navigate('/');
   };
 
@@ -94,15 +92,8 @@ const EditFriendForm = () => {
             </div>
 
             <div className="flex justify-between mt-6">
-              
-              <button 
-                onClick={handleCancel} 
-                className="px-4 py-2 bg-gray-500 text-white rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600"
-              >
-                Cancel
-              </button>
-
-              <button type="submit" className="px-8 py-2.5 leading-5 text-white transition-colors duration-300 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">Edit Friend</button>
+              <button type='button' onClick={handleCancel} className="px-4 py-2 bg-gray-500 text-white rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">Cancel</button>
+              <button type='submit' className="px-8 py-2.5 leading-5 text-white transition-colors duration-300 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">Edit Friend</button>
             </div>
 
         </form>

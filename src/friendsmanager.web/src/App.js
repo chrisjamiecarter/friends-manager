@@ -34,7 +34,7 @@ function App() {
         <Routes>
           <Route exact path="/" element={<FriendList />} />
           <Route path="/friend/add" element={<AddFriendForm />} />
-          <Route path="/friend/contact" element={<AddContactForm />} />
+          <Route path="/friend/contact/:id" element={<AddContactForm />} />
           <Route path="/friend/edit/:id" element={<EditFriendForm />} />
           <Route path="/friend/delete/:id" element={<DeleteFriendForm />} />
         </Routes>

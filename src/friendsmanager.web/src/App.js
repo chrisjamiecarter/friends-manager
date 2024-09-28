@@ -1,6 +1,7 @@
-import React from 'react';
-import './App.css';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { Routes, Route } from 'react-router-dom';
+import './App.css';
 import Header from './components/Header';
 import AddFriendForm from './components/AddFriendForm';
 import FriendList from './components/FriendList';
@@ -9,8 +10,22 @@ import Footer from './components/Footer';
 import AddContactForm from './components/AddContactForm';
 import EditFriendForm from './components/EditFriendForm';
 import DeleteFriendForm from './components/DeleteFriendForm';
+import { loadCategoriesThunk } from './redux/categoriesSlice';
+import { loadFriendsThunk } from './redux/friendsSlice';
 
 function App() {
+  const dispatch = useDispatch();
+    
+  useEffect(() => {
+    console.log("loading friends...")
+    dispatch(loadFriendsThunk());
+  }, [dispatch]);
+
+  useEffect(() => {
+    console.log("loading categories...")
+    dispatch(loadCategoriesThunk());
+  }, [dispatch]);
+
   return (
     <div className="flex flex-col min-h-svh">
       <Header />

@@ -1,16 +1,10 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { loadFriendsThunk } from '../redux/friendsSlice';
+import React from 'react';
+import { useSelector } from 'react-redux';
 import FriendCard from './FriendCard';
 
 const FriendList = () => {
-    const dispatch = useDispatch();
     const friends = useSelector((state) => state.friends.data);
     const loading = useSelector((state) => state.friends.status);
-    
-    useEffect(() => {
-        dispatch(loadFriendsThunk());
-    }, [dispatch]);
 
     if (loading === 'loading') {
         return (

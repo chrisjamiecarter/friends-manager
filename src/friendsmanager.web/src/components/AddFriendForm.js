@@ -1,17 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from "react-router-dom";
 import { addFriendThunk } from '../redux/friendsSlice';
-import { loadCategoriesThunk } from '../redux/categoriesSlice';
 
 const AddFriendForm = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const categories = useSelector((state) => state.categories.data);
-
-  useEffect(() => {
-    dispatch(loadCategoriesThunk());
-  }, [dispatch]);
 
   const [formData, setFormData] = useState({
     name: '',

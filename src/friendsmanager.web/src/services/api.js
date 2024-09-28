@@ -63,21 +63,8 @@ export const addFriend = async (friend) => {
     });
 };
 
-export const addContact = async (contact) => {
-    var friend = await loadFriend(contact.friendid);
-
-    const request = {};
-    request.name = friend.name;
-    request.desiredContactFrequency = friend.desiredContactFrequency;
-    request.lastContactDate = contact.contactDate;
-    request.lastContactType = contact.contactType;
-    request.categoryId = friend.category.id;
-    
-    return await updateFriend(friend.id, request);
-};
-
-const updateFriend = async (id, friend) => {
-    return await fetch(friendsApiUrl + `${id}`, {
+export const updateFriend = async (friend) => {
+    return await fetch(friendsApiUrl + `${friend.id}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json'

@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from "react-router-dom";
-import { addFriendThunk } from '../redux/friendsSlice';
-import { loadCategoriesThunk } from '../redux/categoriesSlice';
+import { useNavigate, useParams } from "react-router-dom";
+import { updateFriendThunk } from '../redux/friendsSlice';
 
 const EditFriendForm = () => {
   const dispatch = useDispatch();
@@ -19,21 +18,17 @@ const EditFriendForm = () => {
   }
   const friend = getFriend();
   
-  useEffect(() => {
-    dispatch(loadCategoriesThunk());
-  }, [dispatch]);
+  const [formData, setFormData] = useState({
+    name: friend.name,
+    categoryid: friend.category.id,
+    desiredContactFrequency: friend.desiredContactFrequency,
+  });
 
   if (!friend) {
     // If no friend data is available, redirect or show an error message.
     // TODO: IMPROVE.
     return <div>Error: Invalid friend id.</div>;
   }
-
-  const [formData, setFormData] = useState({
-    name: friend.name,
-    categoryid: friend.category.id,
-    desiredContactFrequency: friend.desiredContactFrequency,
-  });
 
   const handleCancel = () => {
     navigate(-1);
@@ -51,9 +46,19 @@ const EditFriendForm = () => {
       alert('Please fill out all fields');
       return;
     }
-    //dispatch(addFriendThunk(formData));
-    console.log("formData", formData);
-    //navigate('/');
+
+    const request = {};
+    request.id = friend.id;
+    request.name = formData.name;
+    request.desiredContactFrequency = formData.desiredContactFrequency;
+    request.lastContactDate = friend.lastContactDate;
+    request.lastContactType = friend.lastContactType;
+    request.categoryId = formData.categoryid;
+
+    dispatch(updateFriendThunk(request));
+    //console.log("formData", formData);
+    // Object { name: "Randomer", categoryid: "5b8974cd-d59e-436f-8055-03b7fd7aa170", desiredContactFrequency: "51" }
+    navigate('/');
   };
 
   return (

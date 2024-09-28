@@ -1,15 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { updateFriendThunk, loadFriendsThunk } from '../redux/friendsSlice';
+import { useNavigate } from "react-router-dom";
+import { updateFriendThunk } from '../redux/friendsSlice';
 
 const AddContactForm = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const friends = useSelector((state) => state.friends.data);
   
-  useEffect(() => {
-    dispatch(loadFriendsThunk());
-  }, [dispatch]);
-
   const [formData, setFormData] = useState({
     friendid: '',
     contactDate: '',
@@ -28,12 +26,19 @@ const AddContactForm = () => {
       alert('Please fill out all fields');
       return;
     }
-    dispatch(updateFriendThunk(formData));
-    setFormData({
-      friendid: '',
-      contactDate: '',
-      contactType: '',
-    });
+    
+    const friend = friends[friends.findIndex(f => f.id === formData.friendid)];
+
+    const request = {};
+    request.id = friend.id;
+    request.name = friend.name;
+    request.desiredContactFrequency = friend.desiredContactFrequency;
+    request.lastContactDate = formData.contactDate;
+    request.lastContactType = formData.contactType;
+    request.categoryId = friend.category.id;
+
+    dispatch(updateFriendThunk(request));
+    navigate('/');
   };
 
   return (

@@ -15,7 +15,7 @@ import { loadFriendsThunk } from './redux/friendsSlice';
 
 function App() {
   const dispatch = useDispatch();
-    
+
   useEffect(() => {
     console.log("loading friends...")
     dispatch(loadFriendsThunk());
@@ -41,7 +41,7 @@ function App() {
         </Routes>
       </main>
       <Footer />
-      </div>
+    </div>
   );
 }
 

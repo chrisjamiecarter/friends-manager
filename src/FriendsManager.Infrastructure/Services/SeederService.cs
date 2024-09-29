@@ -6,8 +6,7 @@ namespace FriendsManager.Infrastructure.Services;
 
 /// <summary>
 /// Provides methods to seed the database with initial data.
-/// This service adds a defined set of default Category records
-/// and then uses Bogus to add fake Friend records.
+/// This service adds a defined set of default Categories and a set of fake Friends using Bogus.
 /// </summary>
 internal class SeederService : ISeederService
 {

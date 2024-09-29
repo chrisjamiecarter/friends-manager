@@ -5,9 +5,9 @@ using FriendsManager.Domain.Interfaces;
 namespace FriendsManager.Application.Services;
 
 /// <summary>
-/// Service class responsible for managing operations related to the Category entity.
-/// Provides methods for creating, updating, deleting, and retrieving category data 
-/// by interacting with the underlying data repositories through the Unit of Work pattern.
+/// Service class responsible for managing operations related to the <see cref="Category"/> entity.
+/// Provides methods for creating, updating, deleting, and retrieving data by interacting with the
+/// underlying data repositories through the Unit of Work pattern.
 /// </summary>
 public class CategoryService : ICategoryService
 {

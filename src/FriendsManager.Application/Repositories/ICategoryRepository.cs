@@ -2,6 +2,10 @@
 
 namespace FriendsManager.Application.Repositories;
 
+/// <summary>
+/// Defines the contract for performing CRUD operations on <see cref="Category"/> entities in the
+/// data store.
+/// </summary>
 public interface ICategoryRepository
 {
     Task CreateAsync(Category category);

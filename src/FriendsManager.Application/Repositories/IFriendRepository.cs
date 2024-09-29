@@ -2,6 +2,10 @@
 
 namespace FriendsManager.Application.Repositories;
 
+/// <summary>
+/// Defines the contract for performing CRUD operations on <see cref="Friend"/> entities in the
+/// data store.
+/// </summary>
 public interface IFriendRepository
 {
     Task CreateAsync(Friend friend);

@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace FriendsManager.Api.Controllers;
 
 /// <summary>
-/// Provides the API with CRUD operations to interact with Friend data in the database.
+/// Provides the API with CRUD operations to interact with <see cref="Friend"/> database records.
 /// </summary>
 [ApiController]
 [ApiVersion(1)]

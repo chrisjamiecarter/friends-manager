@@ -3,7 +3,7 @@
 namespace FriendsManager.Domain.Interfaces;
 
 /// <summary>
-/// Defines the contract for a service that manages Friend entities.
+/// Defines the contract for a service that manages <see cref="Friend"/> entities.
 /// </summary>
 public interface IFriendService
 {

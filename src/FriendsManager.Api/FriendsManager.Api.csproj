@@ -22,8 +22,4 @@
     <ProjectReference Include="..\FriendsManager.Infrastructure\FriendsManager.Infrastructure.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="V1\Contracts\Responses\" />
-  </ItemGroup>
-
 </Project>

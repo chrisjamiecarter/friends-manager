@@ -23,7 +23,7 @@ public static class Installer
                 options.GroupNameFormat = "'v'V";
                 options.SubstituteApiVersionInUrl = true;
             });
-                
+
         services.AddControllers();
 
         services.AddEndpointsApiExplorer();
@@ -48,7 +48,7 @@ public static class Installer
         });
 
         app.MapControllers();
-                
+
         return app;
     }
 

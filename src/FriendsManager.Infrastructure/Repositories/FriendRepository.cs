@@ -1,15 +1,13 @@
-﻿using System.Linq.Expressions;
-using FriendsManager.Application.Repositories;
+﻿using FriendsManager.Application.Repositories;
 using FriendsManager.Domain.Entities;
 using FriendsManager.Infrastructure.Contexts;
 using FriendsManager.Infrastructure.Extensions;
-using FriendsManager.Infrastructure.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace FriendsManager.Infrastructure.Repositories;
 
 /// <summary>
-/// Provides repository operations for managing the Infrastructure layer's Friend entity.
+/// Provides repository operations for managing the <see cref="Friend"/> entity.
 /// This class implements the <see cref="IFriendRepository"/> interface, offering 
 /// methods to perform CRUD operations against the database using Entity Framework Core.
 /// </summary>
@@ -35,7 +33,7 @@ internal class FriendRepository : IFriendRepository
         var model = entity.ToModel();
         var category = await _dataContext.Category.FindAsync(model.CategoryId);
         ArgumentNullException.ThrowIfNull(category);
-        
+
         model.Category = category;
         await _dataContext.Friend.AddAsync(model);
     }

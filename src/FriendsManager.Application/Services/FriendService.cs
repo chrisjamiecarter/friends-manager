@@ -5,9 +5,9 @@ using FriendsManager.Domain.Interfaces;
 namespace FriendsManager.Application.Services;
 
 /// <summary>
-/// Service class responsible for managing operations related to the Friend entity.
-/// Provides methods for creating, updating, deleting, and retrieving friend data 
-/// by interacting with the underlying data repositories through the Unit of Work pattern.
+/// Service class responsible for managing operations related to the <see cref="Friend"/> entity.
+/// Provides methods for creating, updating, deleting, and retrieving data by interacting with the
+/// underlying data repositories through the Unit of Work pattern.
 /// </summary>
 public class FriendService : IFriendService
 {

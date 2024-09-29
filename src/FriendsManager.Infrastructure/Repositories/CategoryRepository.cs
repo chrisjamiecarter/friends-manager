@@ -1,15 +1,13 @@
-﻿using System.Linq.Expressions;
-using FriendsManager.Application.Repositories;
+﻿using FriendsManager.Application.Repositories;
 using FriendsManager.Domain.Entities;
 using FriendsManager.Infrastructure.Contexts;
 using FriendsManager.Infrastructure.Extensions;
-using FriendsManager.Infrastructure.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace Budget.Infrastructure.Repositories;
 
 /// <summary>
-/// Provides repository operations for managing the Infrastructure layer's Category entity.
+/// Provides repository operations for managing the <see cref="Category"/> entity.
 /// This class implements the <see cref="ICategoryRepository"/> interface, offering 
 /// methods to perform CRUD operations against the database using Entity Framework Core.
 /// </summary>

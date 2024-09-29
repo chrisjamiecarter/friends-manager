@@ -4,14 +4,11 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace FriendsManager.Infrastructure.Models;
 
 /// <summary>
-/// Represents a Category entity in the infrastructure layer.
+/// Represents a Category model in the infrastructure layer.
 /// </summary>
 [Table("Category")]
 internal class CategoryModel
 {
-    #region Constructors
-
-    #endregion
     #region Properties
 
     [Key]
@@ -21,9 +18,6 @@ internal class CategoryModel
     public required string Name { get; set; }
 
     public List<FriendModel>? Friends { get; set; }
-
-    #endregion
-    #region Methods
 
     #endregion
 }

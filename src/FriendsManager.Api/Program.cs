@@ -4,6 +4,10 @@ using FriendsManager.Infrastructure.Installers;
 
 namespace FriendsManager.Api;
 
+/// <summary>
+/// The entry point for the API.
+/// This class is responsible for configuring and launching the application.
+/// </summary>
 public class Program
 {
     public static void Main(string[] args)
@@ -12,7 +16,7 @@ public class Program
         builder.Services.AddApi();
         builder.Services.AddApplication();
         builder.Services.AddInfrastructure(builder.Configuration);
-                
+
         var app = builder.Build();
         app.AddMiddleware();
         app.SetUpDatabase();

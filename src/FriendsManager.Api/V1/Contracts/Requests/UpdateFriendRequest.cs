@@ -1,7 +1,8 @@
-﻿using FriendsManager.Domain.Entities;
+﻿namespace FriendsManager.Api.V1.Contracts.Requests;
 
-namespace FriendsManager.Api.V1.Contracts.Requests;
-
+/// <summary>
+/// Represents only the necessary information required from API requests to update an existing Friend.
+/// </summary>
 public class UpdateFriendRequest
 {
     #region Properties

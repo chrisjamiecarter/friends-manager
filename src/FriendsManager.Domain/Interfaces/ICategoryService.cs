@@ -3,7 +3,7 @@
 namespace FriendsManager.Domain.Interfaces;
 
 /// <summary>
-/// Defines the contract for a service that manages Category entities.
+/// Defines the contract for a service that manages <see cref="Category"/> entities.
 /// </summary>
 public interface ICategoryService
 {

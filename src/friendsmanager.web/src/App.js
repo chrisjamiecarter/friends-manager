@@ -5,6 +5,7 @@ import Header from './components/Header';
 import AddFriendForm from './components/AddFriendForm';
 import FriendList from './components/FriendList';
 import ErrorDisplay from './components/ErrorDisplay';
+import LoadingDisplay from './components/LoadingDisplay';
 import Footer from './components/Footer';
 import AddContactForm from './components/AddContactForm';
 import EditFriendForm from './components/EditFriendForm';
@@ -30,6 +31,7 @@ function App() {
       <Header />
       <main className='w-full max-w-7xl my-4 mx-auto px-4 flex-grow'>
         <ErrorDisplay />
+        <LoadingDisplay />
         <Routes>
           <Route exact path="/" element={<FriendList />} />
           <Route path="/friend/add" element={<AddFriendForm />} />
